@@ -38,7 +38,7 @@ class ViewComponent(MDScreen, Observer):
             self.dialog = window.UploadWindow(model=self.model)
             
         self.dialog.open()
-        self.controller.dialog(mode, self.dialog)
+        self.controller.dialog(window_type, self.dialog)
     
     
     def close_dialog(self, dialog_data: list=[]):
