@@ -1,15 +1,14 @@
 from abc import ABC, abstractmethod
-from abstractions.observer import Observer
 
 
 class Observable(ABC):
     @abstractmethod
-    def subscribe(self, observer: Observer):
+    def subscribe(self, observer):
         """Attach an observer to observable instance"""
     
     
     @abstractmethod
-    def unsubscribe(self, observer: Observer):
+    def unsubscribe(self, observer):
         """Detaches an observer from observable instance"""
 
         
