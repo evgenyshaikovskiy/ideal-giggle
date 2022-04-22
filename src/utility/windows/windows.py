@@ -64,16 +64,16 @@ class InputWindow(DialogWindow):
             [
                 self.content_cls.ids.input_name.text,
                 self.content_cls.ids.input_group.text,
-                self.content_cls.ids.input_1_semester.txt,
-                self.content_cls.ids.input_2_semester.txt,
-                self.content_cls.ids.input_3_semester.txt,
-                self.content_cls.ids.input_4_semester.txt,
-                self.content_cls.ids.input_5_semester.txt,
-                self.content_cls.ids.input_6_semester.txt,
-                self.content_cls.ids.input_7_semester.txt,
-                self.content_cls.ids.input_8_semester.txt,
-                self.content_cls.ids.input_9_semester.txt,
-                self.content_cls.ids.input_10_semester.txt,
+                self.content_cls.ids.input_1_semester.text,
+                self.content_cls.ids.input_2_semester.text,
+                self.content_cls.ids.input_3_semester.text,
+                self.content_cls.ids.input_4_semester.text,
+                self.content_cls.ids.input_5_semester.text,
+                self.content_cls.ids.input_6_semester.text,
+                self.content_cls.ids.input_7_semester.text,
+                self.content_cls.ids.input_8_semester.text,
+                self.content_cls.ids.input_9_semester.text,
+                self.content_cls.ids.input_10_semester.text,
             ]
         )
 
@@ -94,7 +94,7 @@ class FilterWindow(DialogWindow):
             [
                 self.content_cls.ids.filter_name.text,
                 self.content_cls.ids.filter_group.text,
-                self.content_cls.ids.filter_count.txt,
+                self.content_cls.ids.filter_count.text,
             ]
         )
 
@@ -114,7 +114,7 @@ class DeleteWindow(DialogWindow):
             [
                 self.content_cls.ids.delete_name.text,
                 self.content_cls.ids.delete_group.text,
-                self.content_cls.ids.delete_count.txt,
+                self.content_cls.ids.delete_count.text,
             ]
         )
 
