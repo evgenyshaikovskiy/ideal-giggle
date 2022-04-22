@@ -15,7 +15,7 @@ class RunApplication(MDApp):
             pos_hint={'center_x': 0.5,'center_y': 0.54},
             size_hint={0.9, 0.8},
             use_pagination=True,
-            rows_num=12,
+            rows_num=13,
             column_data=[
                 ('Full name', dp(30)),
                 ('Group', dp(20)),
@@ -29,6 +29,7 @@ class RunApplication(MDApp):
                 ('8', dp(10)),
                 ('9', dp(10)),
                 ('10', dp(10)),
+                ('Total', dp(15)),
             ],
         )
         self.model = ModelComponent(table=self.table)

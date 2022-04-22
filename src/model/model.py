@@ -80,6 +80,10 @@ class ModelComponent():
     
     def add_new_student(self, row):
         try:
+            total = 0
+            for i in range(2, len(row)):
+                total += int(row[i])
+            
             self.table.row_data.insert(
                 len(self.table.row_data),
                 (
@@ -95,6 +99,7 @@ class ModelComponent():
                     row[9],
                     row[10],
                     row[11],
+                    str(total)
                 )
             )
         except ValueError as v:
