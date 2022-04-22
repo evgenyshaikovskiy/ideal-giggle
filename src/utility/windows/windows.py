@@ -11,23 +11,23 @@ class DialogContent(BoxLayout):
     pass
 
 
-class InputDialogContent(BoxLayout):
+class InputDialogContent(DialogContent):
     pass
 
 
-class FilterDialogContent(BoxLayout):
+class FilterDialogContent(DialogContent):
     pass
 
 
-class DeleteDialogContent(BoxLayout):
+class DeleteDialogContent(DialogContent):
     pass
 
 
-class UploadDialogContent(BoxLayout):
+class UploadDialogContent(DialogContent):
     pass
 
 
-class SaveDialogContent(BoxLayout):
+class SaveDialogContent(DialogContent):
     pass
 
 

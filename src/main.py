@@ -36,7 +36,7 @@ class RunApplication(MDApp):
         
     
     def build(self):
-        Window.size = (1000, 800)
+        Window.size = (1280, 800)
         return self.controller.get_screen()
     
 
