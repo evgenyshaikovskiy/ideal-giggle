@@ -11,23 +11,23 @@ class DialogContent(BoxLayout):
     pass
 
 
-class InputDialogContent(DialogContent):
+class InputDialogContent(BoxLayout):
     pass
 
 
-class FilterDialogContent(DialogContent):
+class FilterDialogContent(BoxLayout):
     pass
 
 
-class DeleteDialogContent(DialogContent):
+class DeleteDialogContent(BoxLayout):
     pass
 
 
-class UploadDialogContent(DialogContent):
+class UploadDialogContent(BoxLayout):
     pass
 
 
-class SaveDialogContent(DialogContent):
+class SaveDialogContent(BoxLayout):
     pass
 
 
@@ -149,4 +149,4 @@ class UploadWindow(DialogWindow):
         self.model.close_dialog(self.content_cls.ids.upload_path.text)
         
 
-Builder.load_file(os.path.join(os.path.dirname(__file__), "windows.kv"))
+Builder.load_file('/home/evgeny/source/repos/ideal-giggle/src/utility/windows/windows.kv')
