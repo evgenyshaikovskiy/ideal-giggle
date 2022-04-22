@@ -20,25 +20,25 @@ class XmlReader(sax.ContentHandler):
             self.name = content
         elif self.current == 'group':
             self.group = content
-        elif self.current == '1':
+        elif self.current == 'semester 1':
             self.semester_1 = content
-        elif self.current == '2':
+        elif self.current == 'semester 2':
             self.semester_2 = content
-        elif self.current == '3':
+        elif self.current == 'semester 3':
             self.semester_3 = content
-        elif self.current == '4':
+        elif self.current == 'semester 4':
             self.semester_4 = content
-        elif self.current == '5':
+        elif self.current == 'semester 5':
             self.semester_5 = content
-        elif self.current == '6':
+        elif self.current == 'semester 6':
             self.semester_6 = content
-        elif self.current == '7':
+        elif self.current == 'semester 7':
             self.semester_7 = content
-        elif self.current == '8':
+        elif self.current == 'semester 8':
             self.semester_8 = content
-        elif self.current == '9':
+        elif self.current == 'semester 9':
             self.semester_9 = content
-        elif self.current == '10':
+        elif self.current == 'semester 10':
             self.semester_10 = content
             
     
@@ -47,25 +47,25 @@ class XmlReader(sax.ContentHandler):
             selt.student_data.append(self.name)
         elif self.current == 'group':
             selt.student_data.append(self.group)
-        elif self.current == '1':
+        elif self.current == 'semester 1':
             selt.student_data.append(self.semester_1)
-        elif self.current == '2':
+        elif self.current == 'semester 2':
             selt.student_data.append(self.semester_2)
-        elif self.current == '3':
+        elif self.current == 'semester 3':
             selt.student_data.append(self.semester_3)
-        elif self.current == '4':
+        elif self.current == 'semester 4':
             selt.student_data.append(self.semester_4)
-        elif self.current == '5':
+        elif self.current == 'semester 5':
             selt.student_data.append(self.semester_5)
-        elif self.current == '6':
+        elif self.current == 'semester 6':
             selt.student_data.append(self.semester_6)
-        elif self.current == '7':
+        elif self.current == 'semester 7':
             selt.student_data.append(self.semester_7)
-        elif self.current == '8':
+        elif self.current == 'semester 8':
             selt.student_data.append(self.semester_8)
-        elif self.current == '9':
+        elif self.current == 'semester 9':
             selt.student_data.append(self.semester_9)
-        elif self.current == '10':
+        elif self.current == 'semester 10':
             selt.student_data.append(self.semester_10)
             
         if len(self.student_data) == 12:
