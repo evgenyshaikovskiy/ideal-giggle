@@ -1,4 +1,4 @@
-from view import ViewComponent
+from view.view import ViewComponent
 
 
 class ControllerComponent:
