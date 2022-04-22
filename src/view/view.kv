@@ -5,15 +5,8 @@
             title: "Action title"
             icon: "cigar"
             type: "bottom"
-            on_action_button: root.open_dialog(window_type='input')
+            on_action_button: root.open_dialog('input')
 
-            right_action_items: [
-                ["refresh", lambda x: root.refresh()],
-                ["upload", lambda x: root.open_dialog(window_type='upload')],
-                ["content-save-outline", lambda x: root.open_dialog(window_type='save')],
-            ]
+            right_action_items: [["refresh", lambda x: root.refresh()], ["upload", lambda x: root.open_dialog('upload')], ["content-save-outline", lambda x: root.open_dialog('save')]]
 
-            left_action_items: [
-                ['trash-can-outline', lambda x: root.open_dialog(window_type='delete')],
-                ['filter-outline', lambda x: root.open_dialog(window_type='filter')],
-            ]
+            left_action_items: [['trash-can-outline', lambda x: root.open_dialog('delete')], ['filter-outline', lambda x: root.open_dialog('filter')]]

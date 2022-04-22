@@ -1,6 +1,11 @@
 import os
 
-import utility.windows.windows as window
+from utility.windows.windows import InputWindow
+from utility.windows.windows import FilterWindow
+from utility.windows.windows import DeleteWindow
+from utility.windows.windows import SaveWindow
+from utility.windows.windows import UploadWindow
+
 from utility.abstractions.observer import Observer
 
 # kivy dependencies
@@ -12,8 +17,7 @@ from kivymd.uix.screen import MDScreen
 from kivymd.uix.screen import Screen
 from kivymd.uix.snackbar import Snackbar
 
-
-class ViewComponent(MDScreen, Observer):
+class ViewComponent(MDScreen):
     controller = ObjectProperty()
     model = ObjectProperty()
     
@@ -27,15 +31,15 @@ class ViewComponent(MDScreen, Observer):
     
     def open_dialog(self, window_type: str):
         if window_type == 'input':
-            self.dialog = window.InputWindow(model=self.model)
+            self.dialog = InputWindow(model=self.model)
         elif window_type == 'filter':
-            self.dialog = window.FilterWindow(model=self.model)
+            self.dialog = FilterWindow(model=self.model)
         elif window_type == 'delete':
-            self.dialog = window.DeleteWindow(model=self.model)
+            self.dialog = DeleteWindow(model=self.model)
         elif window_type == 'save':
-            self.dialog = window.SaveWindow(model=self.model)
+            self.dialog = SaveWindow(model=self.model)
         elif window_type == 'upload':
-            self.dialog = window.UploadWindow(model=self.model)
+            self.dialog = UploadWindow(model=self.model)
             
         self.dialog.open()
         self.controller.dialog(window_type, self.dialog)
@@ -69,5 +73,4 @@ class ViewComponent(MDScreen, Observer):
         self.add_widget(self.model.table)
         return self
     
-    
-Builder.load_file(os.path.join(os.path.dirname(__file__), "view.kv"))       
+Builder.load_file('/home/evgeny/source/repos/ideal-giggle/src/view/view.kv')
