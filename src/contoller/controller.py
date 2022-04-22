@@ -20,6 +20,15 @@ class ControllerComponent:
         
         
     def input_student(self, data):
+        # pipeline to handle invalid characters in inputs
+        for i in range(2, len(data)):
+            value = None
+            try:
+                value = int(data[i])
+            except ValueError:
+                value = 0
+            
+            data[i] = value
         self.model.add_new_student(row=data)
     
     
