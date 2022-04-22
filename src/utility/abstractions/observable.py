@@ -14,5 +14,5 @@ class Observable(ABC):
 
         
     @abstractmethod
-    def notify(self):
+    def notify(self, data):
         """Notifies all observers about changes"""
