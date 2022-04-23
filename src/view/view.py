@@ -20,29 +20,26 @@ from kivymd.uix.snackbar import Snackbar
 
 class ViewComponent(MDScreen):
     controller = ObjectProperty()
-    model = ObjectProperty()
 
-    def __init__(self, **kw):
+    def __init__(self, table, **kw):
         super().__init__(**kw)
-
-        # subscribe view component to model as observer
-        self.model.subscribe(self)
+        self.table = table
         self.screen = Screen()
 
     def open_dialog(self, window_type: str):
         if window_type == 'input':
-            self.dialog = InputWindow(model=self.model)
+            self.dialog = InputWindow(view=self)
         elif window_type == 'filter':
-            self.dialog = FilterWindow(model=self.model)
+            self.dialog = FilterWindow(view=self)
         elif window_type == 'delete':
-            self.dialog = DeleteWindow(model=self.model)
+            self.dialog = DeleteWindow(view=self)
         elif window_type == 'save':
-            self.dialog = SaveWindow(model=self.model)
+            self.dialog = SaveWindow(view=self)
         elif window_type == 'upload':
-            self.dialog = UploadWindow(model=self.model)
+            self.dialog = UploadWindow(view=self)
 
         self.dialog.open()
-        self.controller.dialog(window_type, self.dialog)
+        self.controller.open_dialog(window_type, self.dialog)
 
     def close_dialog(self, dialog_data: list = []):
         if self.dialog.mode == 'input':
@@ -59,14 +56,14 @@ class ViewComponent(MDScreen):
 
         self.dialog = None
 
-    def on_model_change(self, data):
+    def on_controller_change(self, data):
         self.close_dialog(data)
 
     def refresh(self):
         self.controller.refresh()
 
     def build(self):
-        self.add_widget(self.model.table)
+        self.add_widget(self.table)
         return self
 
 
