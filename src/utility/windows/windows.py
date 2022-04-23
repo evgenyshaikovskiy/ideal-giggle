@@ -94,7 +94,8 @@ class FilterWindow(DialogWindow):
             [
                 self.content_cls.ids.filter_name.text,
                 self.content_cls.ids.filter_group.text,
-                self.content_cls.ids.filter_count.text,
+                self.content_cls.ids.filter_count_lower.text,
+                self.content_cls.ids.filter_count_upper.text,
             ]
         )
 
@@ -114,7 +115,8 @@ class DeleteWindow(DialogWindow):
             [
                 self.content_cls.ids.delete_name.text,
                 self.content_cls.ids.delete_group.text,
-                self.content_cls.ids.delete_count.text,
+                self.content_cls.ids.delete_count_lower.text,
+                self.content_cls.ids.delete_count_upper.text,
             ]
         )
 

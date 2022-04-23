@@ -99,11 +99,12 @@
 
 
 <FilterDialogContent>:
-    height: "400dp"
+    height: "300dp"
 
     name: filter_name
     group: filter_group
-    count: filter_count
+    count_lower: filter_count_lower
+    count_upper: filter_count_upper
 
     TextInputField:
         id: filter_name
@@ -114,16 +115,22 @@
         hint_text: 'Enter student`s group number:'
 
     TextInputField:
-        id: filter_count
-        hint_text: 'Enter student`s work hours(format lower_bound-upper_bound):'
+        id: filter_count_lower
+        hint_text: 'Enter student`s lower bound work hours:'
+    
+    TextInputField:
+        id: filter_count_upper
+        hint_text: 'Enter student`s upper bound work hours:'
+
 
 
 <DeleteDialogContent>:
-    height: "400dp"
+    height: "300dp"
 
     name: delete_name
     group: delete_group
-    count: delete_count
+    count_lower: delete_count_lower
+    count_upper: delete_count_upper
 
     TextInputField:
         id: delete_name
@@ -134,5 +141,9 @@
         hint_text: 'Enter student`s group number:'
 
     TextInputField:
-        id: delete_count
-        hint_text: 'Enter student`s work hours(format lower_bound-upper_bound):'
+        id: delete_count_lower
+        hint_text: 'Enter student`s lower bound work hours:'
+
+    TextInputField:
+        id: delete_count_upper
+        hint_text: 'Enter student`s upper bound work hours:'

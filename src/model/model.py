@@ -124,13 +124,15 @@ class ModelComponent():
     def select_students(self, filters: list):
         selected_students = []
         
+        print(filters)
+        
         # implement search logic..
         print('search in process')
         
         return selected_students
     
     
-    def filter_studens(self, filters: list):
+    def filter_students(self, filters: list):
         self._not_filtered = self.select_students(filters=filters)
         for row in self._not_filtered:
             try:
