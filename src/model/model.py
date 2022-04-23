@@ -35,12 +35,13 @@ class ModelComponent():
     def read_data(self, path):
         try:
             handler = XmlReader()
-            handler.parser.setControlHandler(handler)
-            handler.parser.parse('data/' + path)
+            handler.parser.setContentHandler(handler)
+            handler.parser.parse('src/data/' + path)
             
             for data in handler.table_data:
                 self.add_new_student(data)
         except Exception as e:
+            print(e)
             pass
 
     
