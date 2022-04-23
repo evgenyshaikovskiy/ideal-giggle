@@ -56,23 +56,23 @@ class ModelComponent():
     
     
     def write_data_to_file(self, path: str):
-        path = 'data/' + path
+        path = 'src/data/' + path
         if self.create_empty_file(path):
             dom = XmlWriter(path)
             data_dict = {}
             for row in self.table.row_data:
                 data_dict['name'] = row[0]
                 data_dict['group'] = row[1]
-                data_dict['semester 1'] = row[2]
-                data_dict['semester 2'] = row[3]
-                data_dict['semester 3'] = row[4]
-                data_dict['semester 4'] = row[5]
-                data_dict['semester 5'] = row[6]
-                data_dict['semester 6'] = row[7]
-                data_dict['semester 7'] = row[8]
-                data_dict['semester 8'] = row[9]
-                data_dict['semester 9'] = row[10]
-                data_dict['semester 10'] = row[11]
+                data_dict['semester_1'] = row[2]
+                data_dict['semester_2'] = row[3]
+                data_dict['semester_3'] = row[4]
+                data_dict['semester_4'] = row[5]
+                data_dict['semester_5'] = row[6]
+                data_dict['semester_6'] = row[7]
+                data_dict['semester_7'] = row[8]
+                data_dict['semester_8'] = row[9]
+                data_dict['semester_9'] = row[10]
+                data_dict['semester_10'] = row[11]
                 
                 dom.create_xml_student(data_dict)
 

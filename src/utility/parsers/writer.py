@@ -15,7 +15,7 @@ class XmlWriter:
             temp_child = self.domtree.createElement(value)
             student.appendChild(temp_child)
             
-            node_text = self.domtree.createTextNode(data[value].strip())
+            node_text = self.domtree.createTextNode(str(data[value]).strip())
             temp_child.appendChild(node_text)
             
         self.rows.append(student)

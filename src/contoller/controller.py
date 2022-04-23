@@ -21,7 +21,7 @@ class ControllerComponent:
         
     def input_student(self, data):
         # pipeline to handle invalid characters in inputs
-        for i in range(2, len(data)):
+        for i in range(1, len(data)):
             value = None
             try:
                 value = int(data[i])
