@@ -12,7 +12,7 @@ class TableApplication(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.table = MDDataTable(
-            pos_hint={'center_x': 0.5,'center_y': 0.54},
+            pos_hint={'center_x': 0.5, 'center_y': 0.54},
             size_hint={0.9, 0.8},
             use_pagination=True,
             rows_num=13,
