@@ -7,14 +7,12 @@ class XmlReader(sax.ContentHandler):
         self.table_data = []
         self.student_data = []
         self.parser = sax.make_parser()
-        
-    
+
     def startElement(self, name, attrs):
         self.current = name
         if name == 'student':
             pass
-        
-    
+
     def characters(self, content):
         if self.current == 'name':
             self.name = content
@@ -40,8 +38,7 @@ class XmlReader(sax.ContentHandler):
             self.semester_9 = content
         elif self.current == 'semester_10':
             self.semester_10 = content
-            
-    
+
     def endElement(self, name):
         if self.current == 'name':
             self.student_data.append(self.name)
@@ -67,10 +64,9 @@ class XmlReader(sax.ContentHandler):
             self.student_data.append(self.semester_9)
         elif self.current == 'semester_10':
             self.student_data.append(self.semester_10)
-            
+
         if len(self.student_data) == 12:
             self.table_data.append(tuple(self.student_data))
             self.student_data = []
-            
-        self.current = ''
 
+        self.current = ''
