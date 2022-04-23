@@ -1,4 +1,5 @@
 import re
+import sys
 
 
 from utility.parsers.reader import XmlReader
@@ -124,11 +125,40 @@ class ModelComponent():
     def select_students(self, filters: list):
         selected_students = []
         
-        print(filters)
-        
-        # implement search logic..
-        print('search in process')
-        
+        for row in self.table.row_data:
+            # search by second name even through first name also given
+            if filters[0] != '':
+                last_name = self.get_second_name(row[0])
+                filter_last_name = filters[0]
+                if last_name != filter_last_name:
+                    selected_students.append(tuple(row))
+            
+            # group search
+            if filters[1] != '' and row[1] != filters[1]:
+                selected_students.append(tuple(row))
+            
+            # boundaries search
+            upper = None
+            lower = None
+            if filters[2]:
+                try:
+                    lower = int(filters[2])
+                except:
+                    pass
+            
+            if filters[3]:
+                try:
+                    upper = int(filters[3])
+                except:
+                    pass
+                
+            current_value = int(row[12])
+            if lower != None and lower > current_value:
+                selected_students.append(tuple(row))
+                
+            if upper != None and upper < current_value:
+                selected_students.append(tuple(row))
+            
         return selected_students
     
     
