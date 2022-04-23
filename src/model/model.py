@@ -15,7 +15,6 @@ class ModelComponent():
 
     def __init__(self, table):
         self.table = table
-        self._observers = []
 
     def read_data(self, path):
         try:
@@ -167,11 +166,3 @@ class ModelComponent():
                 except Exception as e:
                     pass
         return deleted_count
-
-    # def open_dialog(self, dialog, mode):
-    #     self.dialog = dialog
-
-    # def close_dialog(self, dialog_data: list = []):
-    #     data = dialog_data
-    #     self.notify(data)
-    #     self.dialog = None
