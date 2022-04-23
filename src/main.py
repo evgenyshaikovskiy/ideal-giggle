@@ -8,7 +8,7 @@ from kivy.core.window import Window
 from kivy.metrics import dp
 
 
-class RunApplication(MDApp):
+class TableApplication(MDApp):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.table = MDDataTable(
@@ -41,4 +41,5 @@ class RunApplication(MDApp):
         return self.controller.get_screen()
     
 
-RunApplication().run()
+TableApplication().run()
+
