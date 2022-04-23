@@ -4,7 +4,9 @@ from view.view import ViewComponent
 class ControllerComponent:
     def __init__(self, model):
         self.model = model
-        self.view = ViewComponent(controller=self, model=self.model)
+        self.view = ViewComponent(table=self.model.table, controller=self,)
+        self._observers = []
+        self.subscribe(self.view)
 
     def refresh(self):
         self.model.refresh_students()
@@ -13,7 +15,7 @@ class ControllerComponent:
         return self.view.build()
 
     def dialog(self, window_type, dialog):
-        self.model.open_dialog(window_type, dialog)
+        self.open_dialog(window_type, dialog)
 
     def input_student(self, data):
         # pipeline to handle invalid characters in inputs
@@ -39,3 +41,21 @@ class ControllerComponent:
 
     def save_in_file(self, data):
         self.model.write_data_to_file(path=data)
+
+    def open_dialog(self, dialog, mode):
+        self.dialog = dialog
+
+    def close_dialog(self, dialog_data: list = []):
+        data = dialog_data
+        self.model.notify(data)
+        self.dialog = data
+
+    def subscribe(self, observer):
+        self._observers.append(observer)
+
+    def unsubscribe(self, observer):
+        self._observers.remove(observer)
+
+    def notify(self, data):
+        for x in self._observers:
+            x.on_controller_change(data)

@@ -19,7 +19,7 @@ class XmlWriter:
         self.rows.append(student)
 
     def create_xml_file(self):
-        pass_table = self.domtree.createElement('pass_table')
+        pass_table = self.domtree.createElement('students')
 
         for student in self.rows:
             pass_table.appendChild(student)

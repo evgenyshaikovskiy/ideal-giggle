@@ -15,18 +15,7 @@ class ModelComponent():
 
     def __init__(self, table):
         self.table = table
-        self.dialog = None
         self._observers = []
-
-    def subscribe(self, observer):
-        self._observers.append(observer)
-
-    def unsubscribe(self, observer):
-        self._observers.remove(observer)
-
-    def notify(self, data):
-        for x in self._observers:
-            x.on_model_change(data)
 
     def read_data(self, path):
         try:
@@ -66,7 +55,7 @@ class ModelComponent():
                 data_dict['semester_7'] = row[8]
                 data_dict['semester_8'] = row[9]
                 data_dict['semester_9'] = row[10]
-                data_dict['semester_10'] = row[11]   
+                data_dict['semester_10'] = row[11]
                 dom.create_xml_student(data_dict)
 
             dom.create_xml_file()
@@ -179,10 +168,10 @@ class ModelComponent():
                     pass
         return deleted_count
 
-    def open_dialog(self, dialog, mode):
-        self.dialog = dialog
+    # def open_dialog(self, dialog, mode):
+    #     self.dialog = dialog
 
-    def close_dialog(self, dialog_data: list = []):
-        data = dialog_data
-        self.notify(data)
-        self.dialog = None
+    # def close_dialog(self, dialog_data: list = []):
+    #     data = dialog_data
+    #     self.notify(data)
+    #     self.dialog = None

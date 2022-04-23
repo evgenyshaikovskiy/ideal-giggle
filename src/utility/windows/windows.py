@@ -42,11 +42,11 @@ class DialogWindow(MDDialog):
             ],
         )
         self.mode = kwargs['mode']
-        self.model = kwargs['model']
+        self.view = kwargs['view']
 
     def close(self, obj):
         self.dismiss()
-        self.model.close_dialog()
+        self.view.close_dialog()
 
 
 class InputWindow(DialogWindow):
@@ -55,12 +55,12 @@ class InputWindow(DialogWindow):
             title='Fill new student data:',
             content_cls=InputDialogContent(),
             mode='input',
-            model=kwargs['model'],
+            view=kwargs['view'],
         )
 
     def close(self, obj):
         self.dismiss()
-        self.model.close_dialog(
+        self.view.close_dialog(
             [
                 self.content_cls.ids.input_name.text,
                 self.content_cls.ids.input_group.text,
@@ -84,12 +84,12 @@ class FilterWindow(DialogWindow):
                 title='''#Note: if you don't need some term of search, just don't fill it.\nFilter students:''',
                 content_cls=FilterDialogContent(),
                 mode="filter",
-                model=kwargs["model"],
+                view=kwargs["view"],
         )
 
     def close(self, obj):
         self.dismiss()
-        self.model.close_dialog(
+        self.view.close_dialog(
             [
                 self.content_cls.ids.filter_name.text,
                 self.content_cls.ids.filter_group.text,
@@ -105,12 +105,12 @@ class DeleteWindow(DialogWindow):
                 title="#Note: if you don't need some term of search, just don't fill it.\nDelete students: ",
                 content_cls=DeleteDialogContent(),
                 mode="delete",
-                model=kwargs["model"],
+                view=kwargs["view"],
         )
 
     def close(self, obj):
         self.dismiss()
-        self.model.close_dialog(
+        self.view.close_dialog(
             [
                 self.content_cls.ids.delete_name.text,
                 self.content_cls.ids.delete_group.text,
@@ -126,12 +126,12 @@ class SaveWindow(DialogWindow):
                 title="Saving: ",
                 content_cls=SaveDialogContent(),
                 mode="save",
-                model=kwargs["model"],
+                view=kwargs["view"],
         )
 
     def close(self, obj):
         self.dismiss()
-        self.model.close_dialog(self.content_cls.ids.save_path.text)
+        self.view.close_dialog(self.content_cls.ids.save_path.text)
 
 
 class UploadWindow(DialogWindow):
@@ -140,12 +140,12 @@ class UploadWindow(DialogWindow):
                 title="Upload: ",
                 content_cls=UploadDialogContent(),
                 mode="upload",
-                model=kwargs["model"],
+                view=kwargs["view"],
         )
 
     def close(self, obj):
         self.dismiss()
-        self.model.close_dialog(self.content_cls.ids.upload_path.text)
+        self.view.close_dialog(self.content_cls.ids.upload_path.text)
 
 
 Builder.load_file('/home/evgeny/source/repos/ideal-giggle/src/utility/windows/windows.kv')
