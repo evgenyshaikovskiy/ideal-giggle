@@ -35,7 +35,6 @@ class TableApplication(MDApp):
         self.model = ModelComponent(table=self.table)
         self.controller = ControllerComponent(self.model)
         
-    
     def build(self):
         Window.size = (1280, 800)
         return self.controller.get_screen()

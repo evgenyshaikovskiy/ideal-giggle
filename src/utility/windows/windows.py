@@ -81,7 +81,7 @@ class InputWindow(DialogWindow):
 class FilterWindow(DialogWindow):
     def __init__(self, **kwargs):
         super().__init__(
-                title="Filter students: ",
+                title='''#Note: if you don't need some term of search, just don't fill it.\nFilter students:''',
                 content_cls=FilterDialogContent(),
                 mode="filter",
                 model=kwargs["model"],
@@ -103,7 +103,7 @@ class FilterWindow(DialogWindow):
 class DeleteWindow(DialogWindow):
     def __init__(self, **kwargs):
         super().__init__(
-                title="Delete students: ",
+                title="#Note: if you don't need some term of search, just don't fill it.\nDelete students: ",
                 content_cls=DeleteDialogContent(),
                 mode="delete",
                 model=kwargs["model"],
