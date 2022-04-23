@@ -7,8 +7,7 @@ import names
 class XmlGenerator:
     def __init__(self):
         pass
-    
-    
+
     @staticmethod
     def generate_xml_file(count_of_students):
         path = 'src/data.xml'
@@ -28,13 +27,13 @@ class XmlGenerator:
                 data_dict['semester_8'] = str(randint(1, 20))
                 data_dict['semester_9'] = str(randint(1, 20))
                 data_dict['semester_10'] = str(randint(1, 20))
-                
                 writer.create_xml_student(data_dict)
         writer.create_xml_file()
 
+
 def main():
     XmlGenerator.generate_xml_file(40)
-    
+
+
 if __name__ == "__main__":
     main()
-                
