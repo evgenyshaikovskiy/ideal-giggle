@@ -12,40 +12,34 @@ import utility.abstractions.observer as Observer
 
 class ModelComponent():
     _not_filtered = []
-    
-    
+
     def __init__(self, table):
         self.table = table
         self.dialog = None
         self._observers = []
-        
-    
+
     def subscribe(self, observer):
         self._observers.append(observer)
-        
-        
+
     def unsubscribe(self, observer):
         self._observers.remove(observer)
-    
-    
+
     def notify(self, data):
         for x in self._observers:
             x.on_model_change(data)
-            
-    
+
     def read_data(self, path):
         try:
             handler = XmlReader()
             handler.parser.setContentHandler(handler)
             handler.parser.parse('src/data/' + path)
-            
+
             for data in handler.table_data:
                 self.add_new_student(data)
         except Exception as e:
             print(e)
             pass
 
-    
     @staticmethod
     def create_empty_file(path):
         try:
@@ -54,8 +48,7 @@ class ModelComponent():
             return True
         except Exception as e:
             return False
-    
-    
+
     def write_data_to_file(self, path: str):
         path = 'src/data/' + path
         if self.create_empty_file(path):
@@ -73,19 +66,17 @@ class ModelComponent():
                 data_dict['semester_7'] = row[8]
                 data_dict['semester_8'] = row[9]
                 data_dict['semester_9'] = row[10]
-                data_dict['semester_10'] = row[11]
-                
+                data_dict['semester_10'] = row[11]   
                 dom.create_xml_student(data_dict)
 
             dom.create_xml_file()
-    
-    
+
     def add_new_student(self, row):
         try:
             total = 0
             for i in range(2, len(row)):
                 total += int(row[i])
-            
+
             self.table.row_data.insert(
                 len(self.table.row_data),
                 (
@@ -106,25 +97,22 @@ class ModelComponent():
             )
         except ValueError as v:
             pass
-        
-    
+
     @staticmethod
     def get_second_name(name: str):
         return name.split()[1]
-    
 
     def refresh_students(self):
         try:
             self.table.row_data += self._not_filtered
         except ValueError as v:
             pass
-            
+
         self._not_filtered = []
-        
-    
+
     def select_students(self, filters: list):
         selected_students = []
-        
+
         for row in self.table.row_data:
             # search by second name even through first name also given
             if filters[0] != '':
@@ -132,36 +120,35 @@ class ModelComponent():
                 filter_last_name = filters[0]
                 if last_name != filter_last_name:
                     selected_students.append(tuple(row))
-            
+
             # group search
             if filters[1] != '' and row[1] != filters[1]:
                 selected_students.append(tuple(row))
-            
+
             # boundaries search
             upper = None
             lower = None
             if filters[2]:
                 try:
                     lower = int(filters[2])
-                except:
+                except Exception as e:
                     pass
-            
+
             if filters[3]:
                 try:
                     upper = int(filters[3])
-                except:
+                except Exception as e:
                     pass
-                
+
             current_value = int(row[12])
-            if lower != None and lower > current_value:
+            if lower and lower > current_value:
                 selected_students.append(tuple(row))
-                
-            if upper != None and upper < current_value:
+
+            if upper and upper < current_value:
                 selected_students.append(tuple(row))
-            
+
         return selected_students
-    
-    
+
     def filter_students(self, filters: list):
         self._not_filtered = self.select_students(filters=filters)
         for row in self._not_filtered:
@@ -169,17 +156,15 @@ class ModelComponent():
                 self.table.row_data.remove(row)
             except Exception as e:
                 pass
-            
-    
+
     @staticmethod
     def empty_filters(filters):
         for filt in filters:
             if filt != '':
                 return False
-            
+
         return True
-    
-    
+
     def delete_students(self, filters):
         deleted_count = 0
         if self.empty_filters(filters):
@@ -192,15 +177,12 @@ class ModelComponent():
                     deleted_count += 1
                 except Exception as e:
                     pass
-        
         return deleted_count
-    
-    
+
     def open_dialog(self, dialog, mode):
         self.dialog = dialog
 
-  
-    def close_dialog(self, dialog_data: list=[]):
+    def close_dialog(self, dialog_data: list = []):
         data = dialog_data
         self.notify(data)
         self.dialog = None
