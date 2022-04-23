@@ -33,20 +33,11 @@ class ControllerComponent:
     
     
     def filter_students(self, data):
-        filters = []
-        for i in range(len(data)):
-            if data[i] != '':
-                filters.append(data[i])
-        self.model.filter_students(filters=filters)
+        self.model.filter_students(filters=data)
         
     
     def delete_students(self, data):
-        filters = []
-        for i in range(len(data)):
-            if data[i] != '':
-                filters.append(data[i])
-        self.model.filter_students(filters=filters)
-        deleted = self.model.delete_students(filters=filters)
+        deleted = self.model.delete_students(filters=data)
         return deleted
     
     
