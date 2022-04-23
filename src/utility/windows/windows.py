@@ -43,11 +43,11 @@ class DialogWindow(MDDialog):
         )
         self.mode = kwargs['mode']
         self.model = kwargs['model']
-        
+
     def close(self, obj):
         self.dismiss()
         self.model.close_dialog()
-        
+
 
 class InputWindow(DialogWindow):
     def __init__(self, **kwargs):
@@ -57,7 +57,7 @@ class InputWindow(DialogWindow):
             mode='input',
             model=kwargs['model'],
         )
-    
+
     def close(self, obj):
         self.dismiss()
         self.model.close_dialog(
@@ -86,7 +86,6 @@ class FilterWindow(DialogWindow):
                 mode="filter",
                 model=kwargs["model"],
         )
-
 
     def close(self, obj):
         self.dismiss()
@@ -130,11 +129,10 @@ class SaveWindow(DialogWindow):
                 model=kwargs["model"],
         )
 
-
     def close(self, obj):
         self.dismiss()
         self.model.close_dialog(self.content_cls.ids.save_path.text)
-        
+
 
 class UploadWindow(DialogWindow):
     def __init__(self, **kwargs):
@@ -145,10 +143,9 @@ class UploadWindow(DialogWindow):
                 model=kwargs["model"],
         )
 
-
     def close(self, obj):
         self.dismiss()
         self.model.close_dialog(self.content_cls.ids.upload_path.text)
-        
+
 
 Builder.load_file('/home/evgeny/source/repos/ideal-giggle/src/utility/windows/windows.kv')
